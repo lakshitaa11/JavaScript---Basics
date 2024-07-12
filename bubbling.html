@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #cc527a;
+            padding: 20px;
+        }
+        div {
+            background-color: #e8175d;
+            padding: 20px;
+            width: max-content;
+        }
+        span {
+            background-color: #474747;
+            padding: 20px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span>
+            <button>
+                Click Me
+            </button>
+        </span>
+    </div>
+    <script>
+        // BUBBLING
+        // const body = document.getElementsByTagName('body')[0]; 
+        // const div = document.getElementsByTagName('div')[0];
+        // const span = document.getElementsByTagName('span')[0];
+        // const button = document.getElementsByTagName('button')[0];
+        // body.addEventListener('click',()=>{
+        //     console.log("Body was clicked");
+        // })
+        // div.addEventListener('click',()=>{
+        //     console.log("Div was clicked");
+        // })
+        // span.addEventListener('click',()=>{
+        //     console.log("Span was clicked");
+        // })
+        // button.addEventListener('click',(event)=>{
+        //     event.stopPropagation()
+        //     console.log("Button was clicked");
+        // })
+
+        // EVENT DELEGATION
+        const div = document.getElementsByTagName('div')[0];
+        div.addEventListener('click', (event) => {
+            if(event.target.tagName == 'BUTTON'){
+                console.log("Button was clicked");
+            }
+            else if(event.target.tagName == 'SPAN'){
+                console.log("Span was clicked");
+            }
+            else{
+                console.log("Div was clicked");
+            }
+        })
+    </script>
+</body>
+</html>
